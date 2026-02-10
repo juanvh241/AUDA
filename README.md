@@ -1,0 +1,1 @@
+juanti alfa es el más alfa de todos los alfas , exclaman los rumores que su renombrado enemigo juanti omega , volvera para luchar nuevamente tras eones de entrenamiento luego de su derrota en un conflicto interminable de los siglos entre los siglos por ser el alfa
