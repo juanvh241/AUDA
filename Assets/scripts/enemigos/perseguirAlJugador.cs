@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class perseguirAlJugador : MonoBehaviour
 {
-    public GameObject jugador;
+    private GameObject jugador;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,7 +13,12 @@ public class perseguirAlJugador : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-       transform.up = jugador.transform.position - transform.position;
-        transform.position += transform.up * Time.deltaTime;
+        float Distancia = Vector2.Distance(jugador.transform.position, transform.position);
+        if(Distancia > 1.7)
+        {
+            transform.up = jugador.transform.position - transform.position;
+            transform.position += transform.up * Time.deltaTime;
+        }
+
     }
 }
