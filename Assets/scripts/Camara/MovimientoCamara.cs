@@ -3,7 +3,8 @@ using UnityEngine;
 public class MovimientoCamara : MonoBehaviour
 {
     private GameObject jugador;
-  
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,8 +14,11 @@ public class MovimientoCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(jugador.transform.position.x, jugador.transform.position.y, -10);
+        if(jugador != null)
+        {
+            transform.position = new Vector3(jugador.transform.position.x, jugador.transform.position.y, -10);
 
+        }
 
     }
 }

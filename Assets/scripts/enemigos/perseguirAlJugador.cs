@@ -13,12 +13,20 @@ public class perseguirAlJugador : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float Distancia = Vector2.Distance(jugador.transform.position, transform.position);
-        if(Distancia > 1.7)
-        {
-            transform.up = jugador.transform.position - transform.position;
-            transform.position += transform.up * Time.deltaTime;
-        }
+        
 
+        if(jugador != null)
+        {
+            float Distancia = Vector2.Distance(jugador.transform.position, transform.position);
+            if (Distancia > 1.7)
+            {
+                transform.up = jugador.transform.position - transform.position;
+                transform.position += transform.up * Time.deltaTime;
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
