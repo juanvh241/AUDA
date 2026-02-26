@@ -1579,6 +1579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooting
   bulletPrefab: {fileID: 2128507498226341828, guid: c9bec5635e8370e44b04dc36a820c77c, type: 3}
   fireRate: 2
+  timer: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

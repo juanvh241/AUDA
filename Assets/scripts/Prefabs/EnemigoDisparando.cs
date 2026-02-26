@@ -4,7 +4,7 @@ public class EnemyShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float fireRate = 2f;
-    private float timer;
+    public float timer;
     private Transform player;
 
     void Start()
@@ -26,10 +26,14 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {
-        Vector2 direction = (player.position - transform.position);
+        if(player != null)
+        {
+            Vector2 direction = (player.position - transform.position);
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-        bullet.GetComponent<Bala>().SetDirection(direction);
+            bullet.GetComponent<Bala>().SetDirection(direction);
+        }
+
     }
 }
