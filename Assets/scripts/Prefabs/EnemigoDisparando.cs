@@ -4,6 +4,7 @@ public class EnemyShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float fireRate = 2f;
+    public Transform Puntodisparo;
     public float timer;
     private Transform player;
 
@@ -15,6 +16,12 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return;
+
+        Vector2 direction = (player.position - transform.position);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -28,9 +35,9 @@ public class EnemyShooting : MonoBehaviour
     {
         if(player != null)
         {
-            Vector2 direction = (player.position - transform.position);
+            Vector2 direction = (player.position - Puntodisparo.position);
 
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, Puntodisparo.position, Quaternion.identity);
 
             bullet.GetComponent<Bala>().SetDirection(direction);
         }
