@@ -22,7 +22,11 @@ public class Vida : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Arma"))
         {
-            vida -= 10;
+            vida -= 5;
+        }
+        else if (other.gameObject.CompareTag("Bala"))
+        {
+            vida -= 5;
         }
     }
 }
