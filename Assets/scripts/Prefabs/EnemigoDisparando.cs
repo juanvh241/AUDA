@@ -17,18 +17,31 @@ public class EnemyShooting : MonoBehaviour
     void Update()
     {
         if (player == null) return;
-
-        Vector2 direction = (player.position - transform.position);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
+        float Distancia = Vector2.Distance(player.transform.position, transform.position);
+        if (Distancia >= 2.5f)
         {
-            Shoot();
-            timer = fireRate;
+            Vector2 direction = (player.position - transform.position);
+            transform.up = direction;
+            transform.position += transform.up * Time.deltaTime;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            timer = 2f;
+
         }
+        else
+        {
+            Vector2 direction = (player.position - transform.position);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                Shoot();
+                timer = fireRate;
+            }
+        }
+
     }
 
     void Shoot()

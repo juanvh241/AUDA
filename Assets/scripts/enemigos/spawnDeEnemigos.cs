@@ -1,21 +1,46 @@
 using UnityEngine;
+using System.Collections;
 
 public class spawnDeEnemigos : MonoBehaviour
 {
     public GameObject enemigo;
+    public GameObject Tirador;
     public GameObject jugador;
+    
 
-    public int X;
-    public int Y;
+    private int X;
+    private int Y;
+    public float AleatorizadorDeEnemigos;
+    public int SpawnMax;
+    public int CantidadDeEnemigos = 0;
+    
 
     private float valorY;
     private float valorX;
+
+    private bool enfriamientoDeSpawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
+    {
+        SpawnMax = 3;
+        enfriamientoDeSpawn = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(CantidadDeEnemigos < SpawnMax && !enfriamientoDeSpawn)
+        {
+            StartCoroutine(Cooldown());
+        }
+    }
+
+    void Clonar()
     {
         // posicion del spawn en base a variables aleatorias
         X = Random.Range(-0, 2);
         Y = Random.Range(-0, 2);
+        AleatorizadorDeEnemigos = Random.Range(-0, 2);
 
         if (Y == 1)
         {
@@ -36,15 +61,25 @@ public class spawnDeEnemigos : MonoBehaviour
         }
 
 
-
+        //Determinar posición
         Vector2 posicion = new Vector2(valorX, valorY);
         transform.position = posicion;
-        Instantiate(enemigo, gameObject.transform);
+        if(AleatorizadorDeEnemigos >= 1)
+        {
+            Instantiate(Tirador, gameObject.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(enemigo, gameObject.transform.position, Quaternion.identity);
+        }
+
+        CantidadDeEnemigos += 1;
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator Cooldown()
     {
-
+        enfriamientoDeSpawn = true;
+        yield return new WaitForSeconds(3);
+        Clonar();
+        enfriamientoDeSpawn = false;
     }
 }
