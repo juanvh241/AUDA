@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float speed = 7f;        // Velocidad de la bala (podés cambiar este número)
+    public float speed = 20f;        // Velocidad de la bala (podés cambiar este número)
     private Vector2 direction;      // Hacia dónde va la bala (lo define el enemigo al dispararla)
 
     public void SetDirection(Vector2 dir)   // El enemigo llama esta función para decirle a la bala hacia dónde ir

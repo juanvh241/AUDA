@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arma
   - Bala
+  - PlayerDisparo
   layers:
   - Default
   - TransparentFX

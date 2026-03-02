@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7565035974657951805}
   - component: {fileID: 6851411103691070600}
   - component: {fileID: 4511084478925531296}
+  - component: {fileID: 5312183824506728875}
   m_Layer: 0
   m_Name: Tirador
   m_TagString: Untagged
@@ -275,3 +276,15 @@ MonoBehaviour:
   fireRate: 2
   Puntodisparo: {fileID: 307650302071206161}
   timer: 0
+--- !u!114 &5312183824506728875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6553187646511338627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074967b74f557ad4fa3e0c7c21dcdbbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaEnemigo
