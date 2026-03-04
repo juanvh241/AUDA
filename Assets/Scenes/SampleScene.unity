@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 1983897739}
   - component: {fileID: 1983897740}
   - component: {fileID: 1983897741}
+  - component: {fileID: 1983897743}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1448,6 +1449,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vida
   vida: 30
+--- !u!114 &1983897743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983897734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdbfbab77668fb4eac0ebe6d9c9573c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HachaPasiva
+  hachaPrefab: {fileID: 4077082101438638803, guid: 970cc503c3274cf4eb34a4a44b381b5e, type: 3}
+  activa: 0
+  cooldown: 5
 --- !u!1 &2024737615
 GameObject:
   m_ObjectHideFlags: 0
