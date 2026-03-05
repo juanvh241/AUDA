@@ -8,6 +8,7 @@ TagManager:
   - Bala
   - PlayerDisparo
   - Enemigo
+  - Monedas
   layers:
   - Default
   - TransparentFX

@@ -285,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074967b74f557ad4fa3e0c7c21dcdbbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaEnemigo
+  VidaEnemiga: 20
+  Monedas: {fileID: 4529468737258620687, guid: c7527b45e49da034a8acb4a9cb880179, type: 3}
 --- !u!1001 &1940369431289387682
 PrefabInstance:
   m_ObjectHideFlags: 0

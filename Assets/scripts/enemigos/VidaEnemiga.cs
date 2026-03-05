@@ -8,12 +8,13 @@ public class VidaEnemigo : MonoBehaviour
 
     private spawnDeEnemigos Spawn;
 
+    public GameObject Monedas;
 
 
     void Start()
     {
         Spawn = GameObject.Find("spawn").GetComponent<spawnDeEnemigos>();
-
+        
 
     }
 
@@ -32,6 +33,20 @@ public class VidaEnemigo : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerDisparo") { 
                         VidaEnemiga -= 5;
+        }
+
+    }
+
+    private void OnDestroy()
+    {
+        int Cantidad = Random.Range(0, 3);
+        
+        for (int i = Cantidad; i < 3; i++)
+        {
+            float Posicion = Random.Range(-0.5f, 0.5f);
+
+            Vector2 PosicionFinal = new Vector2(transform.position.x + Posicion, transform.position.y + Posicion);
+            Instantiate(Monedas,PosicionFinal,Quaternion.identity);
         }
 
     }
