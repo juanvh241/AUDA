@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8045417967383406637}
   m_Layer: 0
   m_Name: Hacha
-  m_TagString: Arma
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1.34
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198427e354a1869439aa70eacc69ee8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hacha
+  fuerzaHorizontal: 3

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class perseguirAlJugador : MonoBehaviour
 {
+    public int Velocidad;
+
     private GameObject jugador;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +23,7 @@ public class perseguirAlJugador : MonoBehaviour
             if (Distancia > 1.7)
             {
                 transform.up = jugador.transform.position - transform.position;
-                transform.position += transform.up * Time.deltaTime;
+                transform.position += transform.up * Time.deltaTime * Velocidad;
             }
         }
         else

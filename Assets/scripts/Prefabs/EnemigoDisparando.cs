@@ -6,7 +6,11 @@ public class EnemyShooting : MonoBehaviour
     public float fireRate = 2f;
     public Transform Puntodisparo;
     public float timer;
+
+    public bool probar;
+
     private Transform player;
+    
 
     void Start()
     {
@@ -25,7 +29,13 @@ public class EnemyShooting : MonoBehaviour
             transform.position += transform.up * Time.deltaTime;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            timer = 2f;
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                Shoot();
+                timer = fireRate;
+            }
 
         }
         else
@@ -39,6 +49,7 @@ public class EnemyShooting : MonoBehaviour
             {
                 Shoot();
                 timer = fireRate;
+
             }
         }
 
@@ -46,14 +57,20 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {
-        if(player != null)
+        if (player != null)
         {
+            probar = false;
             Vector2 direction = (player.position - Puntodisparo.position);
 
             GameObject bullet = Instantiate(bulletPrefab, Puntodisparo.position, Quaternion.identity);
 
             bullet.GetComponent<Bala>().SetDirection(direction);
+
         }
+
+
+
+
 
     }
 }

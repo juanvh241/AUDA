@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e171b0d78f2dbc45ab07a13fa8e6f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::perseguirAlJugador
+  Velocidad: 3
 --- !u!50 &3547429282247031484
 Rigidbody2D:
   serializedVersion: 5
