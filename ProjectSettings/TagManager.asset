@@ -9,6 +9,7 @@ TagManager:
   - PlayerDisparo
   - Enemigo
   - Monedas
+  - EscudoEnemigo
   layers:
   - Default
   - TransparentFX

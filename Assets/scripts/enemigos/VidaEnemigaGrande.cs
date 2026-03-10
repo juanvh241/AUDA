@@ -1,9 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class VidaEnemigo : MonoBehaviour
+public class VidaEnemigaGrande : MonoBehaviour
 {
-    public int VidaEnemiga = 20;
+    public int VidaEnemiga = 50;
     private bool EnemigoVivo = true;
 
     private spawnDeEnemigos Spawn;
@@ -15,39 +14,41 @@ public class VidaEnemigo : MonoBehaviour
     void Start()
     {
         Spawn = GameObject.Find("spawn").GetComponent<spawnDeEnemigos>();
-        
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-    
-        if (VidaEnemiga <= 0 && EnemigoVivo){
+
+        if (VidaEnemiga <= 0 && EnemigoVivo)
+        {
             Destroy(Cuerpo);
             Spawn.CantidadDeEnemigos -= 1;
-            EnemigoVivo = false;    
+            EnemigoVivo = false;
 
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "PlayerDisparo") { 
-                        VidaEnemiga -= 5;
+        if (other.gameObject.tag == "PlayerDisparo")
+        {
+            VidaEnemiga -= 5;
         }
 
     }
 
     private void OnDestroy()
     {
-        int Cantidad = Random.Range(0, 3);
-        
-        for (int i = Cantidad; i < 3; i++)
+        int Cantidad = Random.Range(0, 10);
+
+        for (int i = Cantidad; i < 10; i++)
         {
             float Posicion = Random.Range(-0.5f, 0.5f);
 
             Vector2 PosicionFinal = new Vector2(transform.position.x + Posicion, transform.position.y + Posicion);
-            Instantiate(Monedas,PosicionFinal,Quaternion.identity);
+            Instantiate(Monedas, PosicionFinal, Quaternion.identity);
         }
 
     }

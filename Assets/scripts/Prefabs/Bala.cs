@@ -19,4 +19,12 @@ public class Bala : MonoBehaviour
     {
         Destroy(gameObject);               // Destruye la bala para no desperdiciar memoria
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("EscudoEnemigo"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
