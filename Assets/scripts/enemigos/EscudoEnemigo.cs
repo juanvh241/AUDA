@@ -18,7 +18,12 @@ public class EscudoEnemigo : MonoBehaviour
 
     void Update()
     {
-        if (Vida <= 0 && !enCooldown)
+        perseguirAlJugador Stuneado = GetComponentInParent<perseguirAlJugador>();
+        if(Stuneado.Stun)
+        {
+            Vida = 0;
+        }
+        if (Vida <= 0 && !enCooldown )
         {
             StartCoroutine(Reaparecer());
         }

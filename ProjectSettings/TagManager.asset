@@ -10,6 +10,7 @@ TagManager:
   - Enemigo
   - Monedas
   - EscudoEnemigo
+  - Stun
   layers:
   - Default
   - TransparentFX

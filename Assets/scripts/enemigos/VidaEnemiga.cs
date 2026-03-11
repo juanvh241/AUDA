@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class VidaEnemigo : MonoBehaviour
 {
+
     public int VidaEnemiga = 20;
+
     private bool EnemigoVivo = true;
+
 
     private spawnDeEnemigos Spawn;
 

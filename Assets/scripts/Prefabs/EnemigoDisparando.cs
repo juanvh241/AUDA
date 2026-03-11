@@ -1,11 +1,12 @@
 using UnityEngine;
-
+using System.Collections;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float fireRate = 2f;
     public Transform Puntodisparo;
     public float timer;
+    private bool Stun;
 
     public bool probar;
 
@@ -22,36 +23,40 @@ public class EnemyShooting : MonoBehaviour
     {
         if (player == null) return;
         float Distancia = Vector2.Distance(player.transform.position, transform.position);
-        if (Distancia >= 2.5f)
+        if (!Stun)
         {
-            Vector2 direction = (player.position - transform.position);
-            transform.up = direction;
-            transform.position += transform.up * Time.deltaTime;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
-            timer -= Time.deltaTime;
-
-            if (timer <= 0f)
+            if (Distancia >= 2.5f)
             {
-                Shoot();
-                timer = fireRate;
-            }
+                Vector2 direction = (player.position - transform.position);
+                transform.up = direction;
+                transform.position += transform.up * Time.deltaTime;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+                timer -= Time.deltaTime;
 
-        }
-        else
-        {
-            Vector2 direction = (player.position - transform.position);
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
-            timer -= Time.deltaTime;
-
-            if (timer <= 0f)
-            {
-                Shoot();
-                timer = fireRate;
+                if (timer <= 0f)
+                {
+                    Shoot();
+                    timer = fireRate;
+                }
 
             }
+            else
+            {
+                Vector2 direction = (player.position - transform.position);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+                timer -= Time.deltaTime;
+
+                if (timer <= 0f)
+                {
+                    Shoot();
+                    timer = fireRate;
+
+                }
+            }
         }
+ 
 
     }
 
@@ -68,9 +73,19 @@ public class EnemyShooting : MonoBehaviour
 
         }
 
+    }
 
-
-
-
+    IEnumerator Continuar()
+    {
+        yield return new WaitForSeconds(5);
+        Stun = false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Stun"))
+        {
+            Stun = true;
+            StartCoroutine(Continuar());
+        }
     }
 }

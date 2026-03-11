@@ -3,6 +3,7 @@ using System.Collections;
 
 public class spawnDeEnemigos : MonoBehaviour
 {
+    public GameObject enemigoGrande;
     public GameObject enemigo;
     public GameObject Tirador;
     public GameObject jugador;
@@ -10,7 +11,7 @@ public class spawnDeEnemigos : MonoBehaviour
 
     private int X;
     private int Y;
-    public float AleatorizadorDeEnemigos;
+    public int AleatorizadorDeEnemigos;
     public int SpawnMax;
     public int CantidadDeEnemigos = 0;
     
@@ -22,7 +23,7 @@ public class spawnDeEnemigos : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnMax = 3;
+        SpawnMax = 5;
         enfriamientoDeSpawn = false;
     }
 
@@ -40,7 +41,7 @@ public class spawnDeEnemigos : MonoBehaviour
         // posicion del spawn en base a variables aleatorias
         X = Random.Range(-0, 2);
         Y = Random.Range(-0, 2);
-        AleatorizadorDeEnemigos = Random.Range(-0, 2);
+        AleatorizadorDeEnemigos = Random.Range(1, 4);
 
         if (Y == 1)
         {
@@ -64,13 +65,17 @@ public class spawnDeEnemigos : MonoBehaviour
         //Determinar posición
         Vector2 posicion = new Vector2(valorX, valorY);
         transform.position = posicion;
-        if(AleatorizadorDeEnemigos >= 1)
+        if(AleatorizadorDeEnemigos == 1)
         {
             Instantiate(Tirador, gameObject.transform.position, Quaternion.identity);
         }
-        else
+        else if(AleatorizadorDeEnemigos == 2)
         {
             Instantiate(enemigo, gameObject.transform.position, Quaternion.identity);
+        }
+        else if (AleatorizadorDeEnemigos == 3)
+        {
+            Instantiate(enemigoGrande, gameObject.transform.position, Quaternion.identity);
         }
 
         CantidadDeEnemigos += 1;

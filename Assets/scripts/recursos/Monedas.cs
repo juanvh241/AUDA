@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class Monedas : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GameObject Player;
+
     void Start()
     {
-        
+         Player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+       if(Player == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
